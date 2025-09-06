@@ -9,7 +9,7 @@ import psycopg2
 
 load_dotenv()
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_URL = ("postgresql://postgres.xfspsnvenlnqqdmbqoyb:Mayonaka%40404@aws-1-eu-west-2.pooler.supabase.com:5432/postgres")
+DB_URL = os.getenv("DB_URL")
 service_account_file = os.path.join(BASE_DIR, "sheets-credentials.json")
 if not service_account_file or not os.path.exists(service_account_file):
     raise FileNotFoundError(f"Service account file not found: {service_account_file}")
@@ -61,9 +61,7 @@ COLUMN_MAPPINGS = {
     },
 }
 
-# -------------------------------
 # 3. Push function
-# -------------------------------
 def push_sheet(sheet_id, worksheet_name, table_name, unique_col, mapping):
     print(f"\n--- Pushing sheet: {worksheet_name} ---")
     
