@@ -61,7 +61,7 @@ COLUMN_MAPPINGS = {
     },
 }
 
-# 3. Push function
+# Push function
 def push_sheet(sheet_id, worksheet_name, table_name, unique_col, mapping):
     print(f"\n--- Pushing sheet: {worksheet_name} ---")
     
